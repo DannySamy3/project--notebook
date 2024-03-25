@@ -1,12 +1,13 @@
+"use client";
+
 import React from "react";
-("use client");
 
 const nav = () => {
   return (
-    <section className="navbar-start">
-      <h2> YOUR PROJECTS</h2>
+    <div className="navbar">
+      <h2 className="text-cyan-50"> YOUR PROJECTS</h2>
       <button className="btn">Add Project</button>
-    </section>
+    </div>
   );
 };
 

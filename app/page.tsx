@@ -1,10 +1,10 @@
 import Image from "next/image";
-import nav from "./Components/nav";
+import Nav from "./Components/nav";
 
 export default function Home() {
   return (
     <main>
-      <nav />
+      <Nav />
       <h2>hel</h2>
       <button className="btn btn-primary">hello</button>
     </main>
