@@ -9,7 +9,7 @@ const nav = () => {
       <h2 className="mx-2 font-bold text-2xl mb-3 text-gray-300 px-4 text-3xl mt-6">
         YOUR PROJECTS
       </h2>
-      <Button>+Add Project</Button>
+      <Button isHomePage={false}>+Add Project</Button>
     </section>
   );
 };
