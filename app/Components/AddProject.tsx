@@ -20,7 +20,7 @@ const AddProject = () => {
         <input
           type="text"
           required
-          className="input input-bordered w-full max-w-4xl max-h-10 bg-stone-100 text-black border-2  border-gray-200 mb-3"
+          className="input input-bordered w-full max-w-4xl max-h-11 bg-stone-100 text-black border-2  border-gray-200 mb-3"
         />
         <label className="text-stone-500 text-xl inline-block mb-2 font-semibold">
           Description
@@ -34,7 +34,7 @@ const AddProject = () => {
         </label>
         <input
           type="date"
-          className="appearance-none w-full max-w-4xl max-h-20  bg-stone-100 text-black input-bordered py-2 rounded-lg border-2"
+          className="input w-full max-w-4xl max-h-20 bg-stone-200 text-black input-bordered "
         />
       </div>
     </section>
