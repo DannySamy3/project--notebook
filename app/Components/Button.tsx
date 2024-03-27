@@ -4,6 +4,7 @@ import React from "react";
 interface props {
   children: "string";
 }
+
 const Button = ({ children, isHomePage }) => {
   return (
     <>

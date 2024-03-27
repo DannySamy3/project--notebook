@@ -1,8 +1,9 @@
 import React from "react";
 import Image from "next/image";
 import Button from "./button";
+import AddProject from "./AddProject";
 
-const HomePage = () => {
+const HomePage = ({}) => {
   interface Props {
     StaticImageData: "string";
   }
