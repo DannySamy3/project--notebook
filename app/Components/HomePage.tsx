@@ -1,9 +1,10 @@
+"use client";
 import React from "react";
 import Image from "next/image";
-import Button from "./button";
+import Button from "./Button";
 import AddProject from "./AddProject";
 
-const HomePage = ({}) => {
+const HomePage = ({ newProject }) => {
   interface Props {
     StaticImageData: "string";
   }

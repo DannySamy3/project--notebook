@@ -1,11 +1,7 @@
 "use client";
 import React from "react";
 
-interface props {
-  children: "string";
-}
-
-const Button = ({ children, isHomePage }) => {
+const Button = ({ children, ...props }) => {
   return (
     <>
       <button
@@ -13,6 +9,7 @@ const Button = ({ children, isHomePage }) => {
           isHomePage ? "w-1/5" : "w-1/2"
         } 
          mx-5 text-lg`}
+        {...props}
       >
         {children}
       </button>
