@@ -9,7 +9,7 @@ const HomePage = () => {
 
   return (
     <div className="w-4/5 mx-auto my-44 ">
-      <div className="flex flex-col items-center  ">
+      <div className="flex flex-col items-center pr-8">
         <Image
           src="/no-projects.png"
           alt="notebook image"
