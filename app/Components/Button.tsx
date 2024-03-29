@@ -11,8 +11,8 @@ const Button: React.FC<btnProps> = ({ children, ...props }) => {
   return (
     <>
       <button
-        className={`btn mx-6 text-gray-500 hover:text-gray-300 font-bold ${
-          props.isHomePage ? 'w-1/5' : 'w-1/2'
+        className={`btn  text-gray-500 hover:text-gray-300 font-bold ${
+          props.isHomePage ? 'w-1/5 mx-6' : 'w-1/2 mr-3'
         } 
          mx-5 text-lg`}
         onClick={props.addproject}

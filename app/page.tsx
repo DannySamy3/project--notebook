@@ -47,20 +47,33 @@ const page: React.FC<pageProps> = () => {
 
       return {
         ...prev,
+        selectedProject: undefined,
         projects: [...prev.projects, newProject],
       };
     });
   };
 
+  const handleCancel = () => {
+    setAddProjectState((prev) => {
+      return {
+        ...prev,
+        selectedProject: undefined,
+      };
+    });
+  };
+
   if (projectAddState.selectedProject === null) {
-    content = <AddProject saveHandler={addProject} />;
+    content = <AddProject saveHandler={addProject} onCancel={handleCancel} />;
   } else if (projectAddState.selectedProject === undefined) {
     content = <HomePage newproject={handleStartProject} />;
   }
 
   return (
     <main className='flex'>
-      <Nav newproject={handleStartProject} />
+      <Nav
+        newproject={handleStartProject}
+        projects={projectAddState.projects}
+      />
       {content}
       {console.log(projectAddState)}
     </main>
