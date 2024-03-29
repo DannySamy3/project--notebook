@@ -4,6 +4,7 @@ import Nav from './Components/nav';
 import HomePage from './Components/HomePage';
 import AddProject from './Components/AddProject';
 import React, { useState } from 'react';
+import SelectedProject from './Components/SelectedProjected';
 
 /////////////////////////////////////////////
 /*
@@ -33,7 +34,25 @@ const page: React.FC<pageProps> = () => {
     projects: [],
   });
 
-  let content: any;
+  const selectedProject = projectAddState.projects.find(
+    (project) => project.id === projectAddState.selectedProject
+  );
+
+  const deleteProject = () => {
+    setAddProjectState((prev) => {
+      return {
+        ...prev,
+        projects: prev.projects.filter((project) => {
+          return project.id !== prev.selectedProject;
+        }),
+        selectedProject: undefined,
+      };
+    });
+  };
+
+  let content = (
+    <SelectedProject project={selectedProject} handleDelete={deleteProject} />
+  );
 
   const handleStartProject = () => {
     content = setAddProjectState((prev) => {
@@ -62,6 +81,15 @@ const page: React.FC<pageProps> = () => {
     });
   };
 
+  const handleSelect = (id) => {
+    setAddProjectState((prev) => {
+      return {
+        ...prev,
+        selectedProject: id,
+      };
+    });
+  };
+
   if (projectAddState.selectedProject === null) {
     content = <AddProject saveHandler={addProject} onCancel={handleCancel} />;
   } else if (projectAddState.selectedProject === undefined) {
@@ -73,6 +101,8 @@ const page: React.FC<pageProps> = () => {
       <Nav
         newproject={handleStartProject}
         projects={projectAddState.projects}
+        selectProject={handleSelect}
+        selectedProjectId={projectAddState.selectedProject}
       />
       {content}
       {console.log(projectAddState)}
