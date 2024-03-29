@@ -5,16 +5,27 @@ import HomePage from './Components/HomePage';
 import AddProject from './Components/AddProject';
 import React, { useState } from 'react';
 
+/////////////////////////////////////////////
+/*
+DEFINING SOME INTERFACES
+*/
+//////////////////////////////////////////////
+
 interface pageProps {
   newproject: {
-    handleAddProject: () => object;
+    handleStartProject: () => object;
   };
 }
-
 interface ProjectState {
   selectedProject: object | null | undefined;
   projects: any[];
 }
+
+////////////////////////////////////////
+/*
+THE MAIN APP COMPONENT FUNCTION
+*/
+////////////////////////////////////////////////
 
 const page: React.FC<pageProps> = () => {
   const [projectAddState, setAddProjectState] = useState<ProjectState>({
@@ -24,20 +35,34 @@ const page: React.FC<pageProps> = () => {
 
   let content: any;
 
-  const handleAddProject = () => {
+  const handleStartProject = () => {
     content = setAddProjectState((prev) => {
       return { ...prev, selectedProject: null };
     });
   };
+
+  const addProject = (projectData) => {
+    setAddProjectState((prev) => {
+      const newProject = { ...projectData, id: Math.random() };
+
+      return {
+        ...prev,
+        projects: [...prev.projects, newProject],
+      };
+    });
+  };
+
   if (projectAddState.selectedProject === null) {
-    content = <AddProject />;
+    content = <AddProject saveHandler={addProject} />;
   } else if (projectAddState.selectedProject === undefined) {
-    content = <HomePage newproject={handleAddProject} />;
+    content = <HomePage newproject={handleStartProject} />;
   }
+
   return (
     <main className='flex'>
-      <Nav newproject={handleAddProject} />
+      <Nav newproject={handleStartProject} />
       {content}
+      {console.log(projectAddState)}
     </main>
   );
 };
