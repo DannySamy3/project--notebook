@@ -20,6 +20,7 @@ interface pageProps {
 interface ProjectState {
   selectedProject: object | null | undefined;
   projects: any[];
+  tasks: any[];
 }
 
 ////////////////////////////////////////
@@ -32,6 +33,7 @@ const page: React.FC<pageProps> = () => {
   const [projectAddState, setAddProjectState] = useState<ProjectState>({
     selectedProject: undefined,
     projects: [],
+    tasks: [],
   });
 
   const selectedProject = projectAddState.projects.find(
@@ -42,16 +44,47 @@ const page: React.FC<pageProps> = () => {
     setAddProjectState((prev) => {
       return {
         ...prev,
-        projects: prev.projects.filter((project) => {
-          return project.id !== prev.selectedProject;
-        }),
+        projects: prev.projects.filter(
+          (project) => project.id !== prev.selectedProject
+        ),
         selectedProject: undefined,
       };
     });
   };
 
+  const addTask = (text) => {
+    setAddProjectState((prev) => {
+      const taskId = Math.random();
+      const newTask = {
+        text: text,
+        projectId: prev.selectedProject,
+        id: taskId,
+      };
+
+      return {
+        ...prev,
+        tasks: [newTask, ...prev.tasks],
+      };
+    });
+  };
+
+  const deleteTasks = (id) => {
+    setAddProjectState((prev) => {
+      return {
+        ...prev,
+        tasks: prev.tasks.filter((task) => task.id !== id),
+      };
+    });
+  };
+
   let content = (
-    <SelectedProject project={selectedProject} handleDelete={deleteProject} />
+    <SelectedProject
+      project={selectedProject}
+      handleDelete={deleteProject}
+      handleAddTask={addTask}
+      handleDeleteTask={deleteTasks}
+      tasks={projectAddState.tasks}
+    />
   );
 
   const handleStartProject = () => {

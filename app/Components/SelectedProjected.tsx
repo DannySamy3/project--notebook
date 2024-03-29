@@ -1,4 +1,12 @@
-const SelectedProject = ({ project, handleDelete }) => {
+import Task from './Task';
+
+const SelectedProject = ({
+  project,
+  handleDelete,
+  handleAddTask,
+  handleDeleteTask,
+  tasks,
+}) => {
   const formattedDate = new Date(project.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
@@ -29,7 +37,7 @@ const SelectedProject = ({ project, handleDelete }) => {
         <p className='mb-4 text-black'>{formattedDate}</p>
         <p className='text-black whitespace-pre-wrap'>{project.description}</p>
       </header>
-      TASKS
+      <Task deleter={handleDeleteTask} adder={handleAddTask} tasks={tasks} />
     </div>
   );
 };
