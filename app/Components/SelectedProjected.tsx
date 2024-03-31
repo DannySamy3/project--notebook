@@ -52,7 +52,12 @@ const SelectedProject = ({
             {project.description}
           </p>
         </header>
-        <Task deleter={handleDeleteTask} adder={handleAddTask} tasks={tasks} />
+        <Task
+          deleter={handleDeleteTask}
+          adder={handleAddTask}
+          tasks={tasks}
+          project={project}
+        />
       </div>
     </div>
   );

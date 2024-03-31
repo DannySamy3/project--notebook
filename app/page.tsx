@@ -138,7 +138,6 @@ const page: React.FC<pageProps> = () => {
         selectedProjectId={projectAddState.selectedProject}
       />
       {content}
-      {console.log(projectAddState)}
     </main>
   );
 };

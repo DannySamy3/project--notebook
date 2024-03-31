@@ -1,5 +1,5 @@
 import { useState } from 'react';
-const NewTask = ({ handleDelete, handleAdd }) => {
+const NewTask = ({ handleDelete, handleAdd, project, tasks }) => {
   const [enteredTask, setEnteredTask] = useState('');
 
   const handleChange = (event) => {
@@ -10,6 +10,7 @@ const NewTask = ({ handleDelete, handleAdd }) => {
     if (enteredTask.trim() === '') {
       return;
     }
+
     handleAdd(enteredTask);
     setEnteredTask('');
   };
