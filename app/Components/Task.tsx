@@ -11,7 +11,7 @@ const Task = ({ tasks, deleter, adder }) => {
         </p>
       )}
       {tasks.length > 0 && (
-        <ul className='py-2 px-4 mt-14 rounded-md '>
+        <ul className='py-2  mt-14 rounded-md'>
           {tasks.map((task) => (
             <li key={task.id} className='flex justify-between mb-6'>
               <span>{task.text}</span>
@@ -24,7 +24,7 @@ const Task = ({ tasks, deleter, adder }) => {
                   xmlns='http://www.w3.org/2000/svg'
                   viewBox='0 0 24 24'
                   fill='currentColor'
-                  class=' h-6 w-6'
+                  class=' h-6 w-6 '
                 >
                   <path
                     fill-rule='evenodd'
