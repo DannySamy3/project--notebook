@@ -25,7 +25,7 @@ const SelectedProject = ({
               className="text-3xl font-bold text-gray-700
             mb-2"
             >
-              {project.title}
+              {project.title.toUpperCase()}
             </h1>
             <button
               onClick={handleDelete}
