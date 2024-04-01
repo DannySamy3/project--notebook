@@ -12,6 +12,7 @@ interface Project {
 interface AddProjectProps {
   saveHandler: (project: Project) => void;
   onCancel: (project: Project) => void;
+  children: Element[];
 }
 
 /*
@@ -24,9 +25,11 @@ const AddProject: React.FC<AddProjectProps> = ({ saveHandler, onCancel }) => {
   const date = useRef<HTMLInputElement>(null);
 
   const handleSave = () => {
-    const enteredTitle = title.current.value;
-    const enteredDescription = description.current.value;
-    const dueDate = date.current.value;
+    const enteredTitle = title.current ? title.current.value : "";
+    const enteredDescription = description.current
+      ? description.current.value
+      : "";
+    const dueDate = date.current ? date.current.value : "";
 
     if (
       enteredTitle.trim() === "" ||
@@ -35,6 +38,7 @@ const AddProject: React.FC<AddProjectProps> = ({ saveHandler, onCancel }) => {
     ) {
       if (modal.current) {
         modal.current.open();
+
         return;
       }
     }

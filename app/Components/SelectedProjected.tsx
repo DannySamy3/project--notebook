@@ -11,10 +11,9 @@ interface Project {
 interface Props {
   project: Project;
   handleDelete: () => void;
-  handleAddTask: (text: string) => void;
   handleDeleteTask: (id: number) => void;
   tasks: any[];
-
+  handleAddTask: (task: { text: string; projectId: number }) => void;
 }
 
 const SelectedProject: React.FC<Props> = ({

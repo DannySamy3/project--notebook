@@ -4,9 +4,8 @@ import React from "react";
 interface TaskProps {
   tasks: { id: number; text: string; projectId: number }[];
   deleter: (id: number) => void;
-  adder: (task: { text: string; projectId: number }) => void;
   project: { id: number };
-  
+  adder: (task: { text: string; projectId: number }) => void;
 }
 
 const Task: React.FC<TaskProps> = ({ tasks, deleter, adder, project }) => {
@@ -43,7 +42,7 @@ const Task: React.FC<TaskProps> = ({ tasks, deleter, adder, project }) => {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      class=" h-6 w-6 text-black   hover:text-red-500 "
+                      className=" h-6 w-6 text-black   hover:text-red-500 "
                     >
                       <path
                         fill-rule="evenodd"

@@ -2,7 +2,11 @@ import { forwardRef, useRef, useImperativeHandle } from "react";
 import React, { ReactNode } from "react";
 
 interface Props {
-  children: ReactNode; // ReactNode can be any valid React node
+  children: ReactNode;
+}
+
+export interface ModalRef {
+  open: () => void;
 }
 
 const Modal: React.FC<Props> = forwardRef(function Modal({ children }, ref) {

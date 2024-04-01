@@ -2,7 +2,7 @@ import React, { useState, ChangeEvent } from "react";
 
 interface NewTaskProps {
   handleDelete: (id: number) => void;
-  handleAdd: (task: string) => void;
+  handleAdd: (task: { text: string; projectId: number }) => void;
   project: { id: number };
   tasks: { id: number; text: string; projectId: number }[];
 }
