@@ -1,10 +1,10 @@
-'use client';
-import Image from 'next/image';
-import Nav from './Components/nav';
-import HomePage from './Components/HomePage';
-import AddProject from './Components/AddProject';
-import React, { useState } from 'react';
-import SelectedProject from './Components/SelectedProjected';
+"use client";
+import Image from "next/image";
+import Nav from "./Components/nav";
+import HomePage from "./Components/HomePage";
+import AddProject from "./Components/AddProject";
+import React, { useState } from "react";
+import SelectedProject from "./Components/SelectedProjected";
 
 /////////////////////////////////////////////
 /*
@@ -13,9 +13,8 @@ DEFINING SOME INTERFACES
 //////////////////////////////////////////////
 
 interface pageProps {
-  newproject: {
-    handleStartProject: () => object;
-  };
+  handleAddTask: (task: string) => void;
+  selectedProjectId: number;
 }
 interface ProjectState {
   selectedProject: object | null | undefined;
@@ -52,7 +51,7 @@ const page: React.FC<pageProps> = () => {
     });
   };
 
-  const addTask = (text) => {
+  const addTask = (text: string) => {
     setAddProjectState((prev) => {
       const taskId = Math.random();
       const newTask = {
@@ -68,7 +67,7 @@ const page: React.FC<pageProps> = () => {
     });
   };
 
-  const deleteTasks = (id) => {
+  const deleteTasks = (id: number) => {
     setAddProjectState((prev) => {
       return {
         ...prev,
@@ -77,7 +76,7 @@ const page: React.FC<pageProps> = () => {
     });
   };
 
-  let content = (
+  let content: any = (
     <SelectedProject
       project={selectedProject}
       handleDelete={deleteProject}
@@ -93,7 +92,7 @@ const page: React.FC<pageProps> = () => {
     });
   };
 
-  const addProject = (projectData) => {
+  const addProject = (projectData: object) => {
     setAddProjectState((prev) => {
       const newProject = { ...projectData, id: Math.random() };
 
@@ -114,7 +113,7 @@ const page: React.FC<pageProps> = () => {
     });
   };
 
-  const handleSelect = (id) => {
+  const handleSelect = (id: number) => {
     setAddProjectState((prev) => {
       return {
         ...prev,
@@ -130,7 +129,7 @@ const page: React.FC<pageProps> = () => {
   }
 
   return (
-    <main className='flex'>
+    <main className="flex">
       <Nav
         newproject={handleStartProject}
         projects={projectAddState.projects}

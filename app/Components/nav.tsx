@@ -7,12 +7,12 @@ interface NavProps {
   };
   isHomePage: boolean;
   projects: Project[];
-  selectProject: any;
+  selectProject: (id: number) => void;
   selectedProjectId: number;
 }
 
 interface Project {
-  id: string;
+  id: number;
   title: string;
 }
 
@@ -23,8 +23,10 @@ const nav: React.FC<NavProps> = ({
   selectedProjectId,
 }) => {
   return (
-    <section className="navbar-start mt-12 bg-neutral py-8 rounded-r-lg rounded-br-md h-screen w-1/5 space-y-5
-    ">
+    <section
+      className="navbar-start mt-12 bg-neutral py-8 rounded-r-lg rounded-br-md h-screen w-1/5 space-y-5
+    "
+    >
       <h2 className=" font-bold text-2xl mb-3 text-gray-300  mt-6 text-left">
         YOUR PROJECTS
       </h2>
