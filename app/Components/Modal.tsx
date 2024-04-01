@@ -1,12 +1,19 @@
-import { forwardRef, useRef, useImperativeHandle } from 'react';
+import { forwardRef, useRef, useImperativeHandle } from "react";
+import React, { ReactNode } from "react";
 
-const Modal = forwardRef(function Modal({ children }, ref) {
-  const dialog = useRef();
+interface Props {
+  children: ReactNode; // ReactNode can be any valid React node
+}
+
+const Modal: React.FC<Props> = forwardRef(function Modal({ children }, ref) {
+  const dialog = useRef<HTMLDialogElement>(null);
 
   useImperativeHandle(ref, () => {
     return {
       open() {
-        dialog.current.showModal();
+        if (dialog.current) {
+          dialog.current.showModal();
+        }
       },
     };
   });
@@ -15,14 +22,14 @@ const Modal = forwardRef(function Modal({ children }, ref) {
     <>
       <dialog
         ref={dialog}
-        className='backdrop:bg-stone-900/90
-      p-5 rounded-md shadow-md bg-stone-100 '
+        className="backdrop:bg-stone-900/90
+      p-5 rounded-md shadow-md bg-stone-100 "
       >
         {children}
-        <form method='dialog' className='mt-4'>
+        <form method="dialog" className="mt-4">
           <button
-            className='border-none btn btn-neutral text-stone-400
-           hover:text-stone-100 mt-2'
+            className="border-none btn btn-neutral text-stone-400
+           hover:text-stone-100 mt-2"
           >
             Close
           </button>

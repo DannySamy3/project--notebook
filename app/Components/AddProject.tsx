@@ -18,10 +18,10 @@ interface AddProjectProps {
 THE MAIN COMPONENT FUNCTION
 */
 const AddProject: React.FC<AddProjectProps> = ({ saveHandler, onCancel }) => {
-  const modal = useRef();
-  const title = useRef();
-  const description = useRef();
-  const date = useRef();
+  const modal = useRef<HTMLInputElement>(null);
+  const title = useRef<HTMLInputElement>(null);
+  const description = useRef<HTMLTextAreaElement>(null);
+  const date = useRef<HTMLInputElement>(null);
 
   const handleSave = () => {
     const enteredTitle = title.current.value;
@@ -33,8 +33,10 @@ const AddProject: React.FC<AddProjectProps> = ({ saveHandler, onCancel }) => {
       enteredDescription.trim() === "" ||
       dueDate.trim() === ""
     ) {
-      modal.current.open();
-      return;
+      if (modal.current) {
+        modal.current.open();
+        return;
+      }
     }
 
     saveHandler({
