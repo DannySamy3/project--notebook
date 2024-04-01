@@ -1,6 +1,15 @@
 import NewTask from "./NewTask";
+import React from "react";
 
-const Task = ({ tasks, deleter, adder, project }) => {
+interface TaskProps {
+  tasks: { id: number; text: string; projectId: number }[];
+  deleter: (id: number) => void;
+  adder: (task: { text: string; projectId: number }) => void;
+  project: { id: number };
+  
+}
+
+const Task: React.FC<TaskProps> = ({ tasks, deleter, adder, project }) => {
   return (
     <section>
       <h2 className="text-2xl font bold text-stone-700 mb-4">Tasks</h2>

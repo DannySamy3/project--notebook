@@ -1,8 +1,21 @@
-import { useState } from "react";
-const NewTask = ({ handleDelete, handleAdd, project, tasks }) => {
-  const [enteredTask, setEnteredTask] = useState("");
+import React, { useState, ChangeEvent } from "react";
 
-  const handleChange = (event) => {
+interface NewTaskProps {
+  handleDelete: (id: number) => void;
+  handleAdd: (task: string) => void;
+  project: { id: number };
+  tasks: { id: number; text: string; projectId: number }[];
+}
+
+const NewTask: React.FC<NewTaskProps> = ({
+  handleDelete,
+  handleAdd,
+  project,
+  tasks,
+}) => {
+  const [enteredTask, setEnteredTask] = useState<string>("");
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEnteredTask(event.target.value);
   };
 
