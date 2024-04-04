@@ -46,7 +46,7 @@ THE MAIN APP COMPONENT FUNCTION
 */
 ////////////////////////////////////////////////
 
-const Page: React.FC<pageProps> = () => {
+const Page = () => {
   const [projectAddState, setAddProjectState] = useState<ProjectState>({
     selectedProject: undefined,
     projects: [],
