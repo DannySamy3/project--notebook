@@ -1,6 +1,7 @@
 'use client';
 import React, { useRef } from 'react';
 import Modal from './Modal';
+import Image from 'next/image';
 
 //////*DEFINING THEM INTERFACES*////////
 interface Project {
@@ -56,7 +57,7 @@ const AddProject: React.FC<AddProjectProps> = ({ saveHandler, onCancel }) => {
           {' '}
           Invalid Input{' '}
           {
-            <img
+            <Image
               width='32'
               height='32'
               src='https://img.icons8.com/color/48/high-priority.png'
