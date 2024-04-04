@@ -56,15 +56,6 @@ const AddProject: React.FC<AddProjectProps> = ({ saveHandler, onCancel }) => {
         <h2 className=' text-4xl text-stone-800 font-bold mb-3 mr-14 '>
           {' '}
           Invalid Input{' '}
-          {
-            <Image
-              width='32'
-              height='32'
-              src='https://img.icons8.com/color/48/high-priority.png'
-              alt='high-priority'
-              className='inline  '
-            />
-          }
         </h2>
         <p className='text-stone-700 font-medium  mb-2'>
           Ooops .... looks like you forgot to enter a value.
