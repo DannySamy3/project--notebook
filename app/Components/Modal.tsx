@@ -11,7 +11,7 @@ const Modal: React.FC<Props> = forwardRef(function Modal({ children }, ref) {
 
   useImperativeHandle(ref, () => {
     return {
-      open() {
+      open: () => {
         if (dialog.current) {
           dialog.current.showModal();
         }
