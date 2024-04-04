@@ -46,7 +46,7 @@ THE MAIN APP COMPONENT FUNCTION
 */
 ////////////////////////////////////////////////
 
-const page: React.FC<pageProps> = () => {
+const Page: React.FC<pageProps> = () => {
   const [projectAddState, setAddProjectState] = useState<ProjectState>({
     selectedProject: undefined,
     projects: [],
@@ -160,4 +160,4 @@ const page: React.FC<pageProps> = () => {
   );
 };
 
-export default page;
+export default Page;
