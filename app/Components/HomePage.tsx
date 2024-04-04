@@ -4,9 +4,8 @@ import Image from 'next/image';
 import Button from './Button';
 
 interface HomeProps {
-  newproject: {
-    handleAddProject: () => object;
-  };
+  newproject: () => void;
+
   isHomePage: boolean;
 }
 

@@ -1,10 +1,10 @@
-"use client";
-import Image from "next/image";
-import Nav from "./Components/nav";
-import HomePage from "./Components/HomePage";
-import AddProject from "./Components/AddProject";
-import React, { useState } from "react";
-import SelectedProject from "./Components/SelectedProjected";
+'use client';
+import Image from 'next/image';
+import Nav from './Components/nav';
+import HomePage from './Components/HomePage';
+import AddProject from './Components/AddProject';
+import React, { useState } from 'react';
+import SelectedProject from './Components/SelectedProjected';
 
 /////////////////////////////////////////////
 /*
@@ -12,10 +12,28 @@ DEFINING SOME INTERFACES
 */
 //////////////////////////////////////////////
 
-interface pageProps {
-  handleAddTask: (task: string) => void;
-  selectedProjectId: number;
+// interface Project {
+//   title: string;
+//   description: string;
+//   date: string;
+// }
+
+// interface AddProjectProps {
+//   saveHandler: (project: Project) => void;
+//   onCancel: (project: Project) => void;
+//   children: Element[];
+// }
+
+interface Task {
+  projectId: number;
+  text: string;
 }
+
+interface pageProps {
+  selectedProjectId: number;
+  handleAddTask: (task: string) => void;
+}
+
 interface ProjectState {
   selectedProject: object | null | undefined;
   projects: any[];
@@ -113,7 +131,7 @@ const page: React.FC<pageProps> = () => {
     });
   };
 
-  const handleSelect = (id: number) => {
+  const handleSelect = (id: any) => {
     setAddProjectState((prev) => {
       return {
         ...prev,
@@ -125,16 +143,17 @@ const page: React.FC<pageProps> = () => {
   if (projectAddState.selectedProject === null) {
     content = <AddProject saveHandler={addProject} onCancel={handleCancel} />;
   } else if (projectAddState.selectedProject === undefined) {
-    content = <HomePage newproject={handleStartProject} />;
+    content = <HomePage isHomePage newproject={handleStartProject} />;
   }
 
   return (
-    <main className="flex">
+    <main className='flex'>
       <Nav
         newproject={handleStartProject}
         projects={projectAddState.projects}
         selectProject={handleSelect}
         selectedProjectId={projectAddState.selectedProject}
+        isHomePage
       />
       {content}
     </main>
