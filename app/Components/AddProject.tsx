@@ -1,7 +1,6 @@
 'use client';
 import React, { useRef } from 'react';
 import Modal from './Modal';
-import Image from 'next/image';
 
 //////*DEFINING THEM INTERFACES*////////
 interface Project {
@@ -19,7 +18,7 @@ interface AddProjectProps {
 THE MAIN COMPONENT FUNCTION
 */
 const AddProject: React.FC<AddProjectProps> = ({ saveHandler, onCancel }) => {
-  const modal = useRef<HTMLInputElement>(null);
+  const modal: any = useRef();
   const title = useRef<HTMLInputElement>(null);
   const description = useRef<HTMLTextAreaElement>(null);
   const date = useRef<HTMLInputElement>(null);
