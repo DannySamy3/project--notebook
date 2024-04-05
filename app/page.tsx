@@ -6,7 +6,7 @@ Amplify.configure(config);
 
 import Main from "./Components/Main";
 
-export function psage() {
+export function page() {
   return (
     <>
       <Main />
