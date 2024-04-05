@@ -15,7 +15,7 @@ interface Project {
   title: string;
 }
 
-const nav: React.FC<NavProps> = ({
+const Nav: React.FC<NavProps> = ({
   newproject,
   projects,
   selectProject,
@@ -57,4 +57,4 @@ const nav: React.FC<NavProps> = ({
   );
 };
 
-export default nav;
+export default Nav;
