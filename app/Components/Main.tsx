@@ -1,16 +1,16 @@
-import { Amplify } from 'aws-amplify';
-import config from '@/src/amplifyconfiguration.json';
+import { Amplify } from "aws-amplify";
+import config from "@/src/amplifyconfiguration.json";
 Amplify.configure(config);
-import SelectedProject from './SelectedProjected';
-import HomePage from './HomePage';
-import AddProject from './AddProject';
-import React from 'react';
-import { useState } from 'react';
-import Nav from './Nav';
+import SelectedProject from "./SelectedProjected";
+import HomePage from "./HomePage";
+import AddProject from "./AddProject";
+import React from "react";
+import { useState } from "react";
+import Nav from "./nav";
 
-import type { WithAuthenticatorProps } from '@aws-amplify/ui-react';
-import { withAuthenticator } from '@aws-amplify/ui-react';
-import '@aws-amplify/ui-react/styles.css';
+import type { WithAuthenticatorProps } from "@aws-amplify/ui-react";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
 
 interface ProjectState {
   selectedProject: object | null | undefined;
@@ -125,7 +125,7 @@ export function main({ signOut, user }: WithAuthenticatorProps) {
   }
 
   return (
-    <main className='flex'>
+    <main className="flex">
       <Nav
         newproject={handleStartProject}
         projects={projectAddState.projects}

@@ -1,0 +1,14 @@
+{
+  "resourceName": "danielResource",
+  "policyUUID": "93fb0660",
+  "bucketName": "danielbucket",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ],
+  "triggerFunction": "NONE",
+  "groupAccess": {}
+}
