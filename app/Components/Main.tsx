@@ -134,6 +134,12 @@ export function Main({ signOut, user }: WithAuthenticatorProps) {
         isHomePage
       />
       {content}
+      <button
+        className="btn text-gray-500 border-none bg-white mt-6 hover:text-gray-900 hover:bg-white"
+        onClick={signOut}
+      >
+        Sign out
+      </button>
     </main>
   );
 }
