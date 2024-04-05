@@ -1,5 +1,5 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 
 interface btnProps {
   children: string;
@@ -12,7 +12,7 @@ const Button: React.FC<btnProps> = ({ children, ...props }) => {
     <>
       <button
         className={`btn text-gray-500 hover:text-gray-300 font-bold ${
-          props.isHomePage ? 'w-1/5 mx-6  ' : 'w-1/2 inline-block ml-1'
+          props.isHomePage ? "w-1/5 mx-6  " : "w-3/5 inline-block ml-1"
         } 
          mx-5 text-lg`}
         onClick={props.addproject}
