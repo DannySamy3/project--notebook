@@ -6,12 +6,12 @@ Amplify.configure(config);
 
 import Main from "./Components/Main";
 
-export function page() {
+const page = () => {
   return (
     <>
       <Main />
     </>
   );
-}
+};
 
 export default page;
