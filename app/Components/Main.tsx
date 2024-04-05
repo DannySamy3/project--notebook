@@ -24,7 +24,7 @@ interface ProjectState {
   */
 ////////////////////////////////////////////////
 
-export function main({ signOut, user }: WithAuthenticatorProps) {
+export function Main({ signOut, user }: WithAuthenticatorProps) {
   const [projectAddState, setAddProjectState] = useState<ProjectState>({
     selectedProject: undefined,
     projects: [],
@@ -138,4 +138,4 @@ export function main({ signOut, user }: WithAuthenticatorProps) {
   );
 }
 
-export default withAuthenticator(main);
+export default withAuthenticator(Main);
